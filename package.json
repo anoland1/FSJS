@@ -1,0 +1,22 @@
+{
+  "name": "fsjsclassproject",
+  "version": "1.0.0",
+  "description": "README - Andrew Noland Front End Web Development Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anoland1/CodeLouisville.git"
+  },
+  "author": "andrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anoland1/CodeLouisville/issues"
+  },
+  "homepage": "https://github.com/anoland1/CodeLouisville#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

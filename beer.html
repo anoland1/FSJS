@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>La Source</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/menustyles.css">
+</head>
+<body>
+
+	<header class="main-header">
+		<div id="menu" class="container clearfix">
+			<h1 class="name">La Source</h1>
+			<ul class="main-nav">
+				<li><a href="firstpage.html">Home</a></li>
+				<li><a href="wine.html">Wine</a></li>
+				<li><a href="cocktails.html">Liquor</a></li>
+				<li class="selected"><a href="beer.html">Beer</a></li>
+				<li><a href="food.html">Food</a></li>
+			</ul>
+		</div>
+	</header><!--/.main-header-->
+
+
+<div id="menulist">
+<ul>
+	<div id="menutitle"><h3>Beer</h3></div>
+	<div><li class="menuitem" id="beer1"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer2"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer3"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer4"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer5"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer6"></li><button class='orderbutton invisible'>Order</button></div>
+	<div><li class="menuitem" id="beer7"></li><button class='orderbutton invisible'>Order</button></div>
+</ul>
+</div>
+
+<div id="purchaseOrder" class="hidden">
+	<p id="selectedItem"></p>
+	<button type="button" class="quantity" id="quantitydown">-</button><button type="disabled" class="quantity" id="quantity">1</button><button type="button" class="quantity" id="quantityup">+</button>
+	<p id="selectedPrice"></p>
+	<p id="selectedTax"></p>
+	<p id="selectedTotal"></p>
+	<button type="button" class="confirmOrder">Confirm Order</button>
+	<button type="button" class="cancelOrder">Cancel Order</button>
+</div>
+
+	<footer class="main-footer">
+		<div id="bartab"></div><br>
+		<span>(c) 2017 LA SOURCE BAR AND BISTRO</span>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/menu-beer.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bartab.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

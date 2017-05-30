@@ -1,0 +1,249 @@
+
+@import url('https://fonts.googleapis.com/css?family=League+Script');
+
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+h2 {
+	color: #800000;
+	font-weight: lighter;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+figure {
+	margin: 0;
+	line-height: 0;
+}
+
+body {
+	background: #fff;
+}
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name {
+	font-size: 2.5em;
+	position: absolute;
+	top: 0px;
+	font-family: "League Script", cursive;
+	font-weight: bolder;
+	color: #000;
+}
+
+.main-nav {
+	margin-top: 5px;
+	float: right;
+}
+
+	.name a {
+		display: block;
+		text-align: center;
+	}
+
+	.main-nav li {
+		display: inline-block;
+		margin-left: 5px;
+		margin-top: 15px;
+	}
+
+	.main-nav a {
+		font-size: .95em;
+		color: #800000;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0 10px;
+	}
+
+	.main-nav a:hover {
+		color: #000;
+	}
+
+	ul li.selected a {
+		color: #000;
+		font-weight: bold;
+	}
+
+	select {
+		width: 150px;
+		margin: 20px  0 0 2%;
+	}
+
+	/* Attribute Selectors ------------- */
+
+	#container  {
+	  max-width: 500px;
+	  margin: auto;
+	}
+
+
+	.avatar {
+	  display: block;
+	  margin: 0 auto 1em;
+	  width:220px;
+	  height:220px;
+	  object-fit: cover;
+	}
+
+	.rounded {
+	  border-radius: 50%;
+	}
+
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+	padding-top: 22px;
+	padding-bottom: 22px;
+  box-shadow: 0 2px 1px rgba(0,0,0,.7);
+	background: lightgrey;
+	/*#deb887;*/
+}
+
+.main-footer {
+	text-align: center;
+}
+
+.col {
+	padding-right: 1em;
+	padding-left: 1em;
+	margin-top: 40px;
+}
+
+.main-footer {
+	background: lightgrey;
+	padding: 2em 0;
+	margin-top: 30px;
+	font-size: .8em;
+	border-top: 2px outset #000;
+	height: 100%;
+	box-shadow: 0px 500px 0px 500px lightgrey;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (max-width: 599px) {
+
+	body {
+		padding-top: 68px;
+}
+
+	#menu ul {
+		display: none;
+	}
+	#menu select {
+		display: inline-block;
+		float: right;
+		max-width: 50%;
+	}
+	.main-header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 1;
+}
+
+	.container {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.name {
+		float: left;
+	}
+	.clearfix::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+@media (min-width: 600px) {
+
+  body {
+    padding-top: 68px;
+}
+
+  .main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+	.container {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.name,
+	.col {
+		float: left;
+	}
+
+	.first,
+	.second {
+		width: 50%;
+	}
+
+	.third,
+	.fourth {
+		width: 50%;
+	}
+
+	#menu select {
+		display: none;
+	}
+
+	/* ---- Float clearfix ---- */
+
+	.clearfix::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+}
+
+@media (min-width: 1025px) {
+
+	.container {
+		width: 90%;
+		max-width: 1150px;
+	}
+
+	.name,
+	.col {
+		float: left;
+	}
+
+	.first,
+	.second,
+	.third,
+	.fourth {
+		width: 25%;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+}

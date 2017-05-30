@@ -1,0 +1,44 @@
+body {
+  background: #000;
+}
+
+#maindiv {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 600px;
+  max-height: 90%;
+  text-align: center;
+}
+
+.swipe {
+  border: 3px solid #e1dfbe;
+  border-radius: 4px;
+  width: 320px;
+  text-align: center;
+  font-size: 32px;
+  color: #f4f3ce;
+  font-family: "League Script", cursive;
+	font-weight: bolder;
+  margin:50px auto 0 auto;
+  text-shadow: 2px black;
+}
+.rounded {
+  max-width: 100%;
+  max-height: 90%;
+  border-radius: 50%;
+}
+
+.button {
+	color: #000;
+  font-style: italic;
+	text-align: center;
+  font-size: 1.15em;
+  font-style: bolder;
+	padding: .625em 1.25em;
+	background: silver;
+	border-radius: .35em;
+  margin-top: 10px;
+  border-color: rgba(100,130,150,.9);
+  border-width: 4px;
+  border-style: outset;
+}
