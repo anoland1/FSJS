@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>La Source</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/menustyles.css">
+</head>
+<body>
+
+	<header class="main-header">
+		<div id="menu" class="container clearfix">
+			<h1 class="name">La Source</h1>
+			<ul class="main-nav">
+				<li><a href="firstpage.html">Home</a></li>
+				<li><a href="wine.html">Wine</a></li>
+				<li><a href="cocktails.html">Liquor</a></li>
+				<li><a href="beer.html">Beer</a></li>
+				<li class="selected"><a href="food.html">Food</a></li>
+			</ul>
+		</div>
+	</header><!--/.main-header-->
+
+	<div class="clearfix">
+	<div id="menulist">
+		<div class="menucol one">
+		<ul>
+		<div id="menutitle"><h3>Meats</h3></div>
+		<div><li class="menuitem" id="meat1"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="meat2"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="meat3"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="meat4"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+	</ul></div>
+		<div class="menucol two">
+		<ul>
+		<div id="menutitle"><h3>Cheeses</h3></div>
+		<div><li class="menuitem" id="cheese1"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="cheese2"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="cheese3"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="cheese4"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+	</ul></div>
+		<div class="menucol three">
+		<ul>
+		<div id="menutitle"><h3>Nuts and Dried Fruit</h3></div>
+		<div><li class="menuitem" id="nuts1"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="nuts2"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="nuts3"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="nuts4"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+	</ul></div>
+		<div class="menucol four">
+		<ul>
+		<div id="menutitle"><h3>Spreads</h3></div>
+		<div><li class="menuitem" id="spread1"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+		<div><li class="menuitem" id="spread2"></li><button type='button' class='orderbutton invisible'>Order</button></div>
+	</ul></div>
+	</div>
+	</div>
+
+	<div id="purchaseOrder" class="hidden">
+		<p id="selectedItem"></p>
+		<button type="button" class="quantity" id="quantitydown">-</button><button type="disabled" class="quantity" id="quantity">1</button><button type="button" class="quantity" id="quantityup">+</button>
+		<p id="selectedPrice"></p>
+		<p id="selectedTax"></p>
+		<p id="selectedTotal"></p>
+		<button type="button" class="confirmOrder">Confirm Order</button>
+		<button type="button" class="cancelOrder">Cancel Order</button>
+	</div>
+
+		<footer class="main-footer">
+			<div id="bartab"></div><br>
+			<span>(c) 2017 LA SOURCE BAR AND BISTRO</span>
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/menu-food.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bartab.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+	</html>
