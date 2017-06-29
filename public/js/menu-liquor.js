@@ -42,11 +42,6 @@ var cocktailChange, bourbonChange, scotchChange, mixedChange;
 var cocktailCurrent, bourbonCurrent, scotchCurrent, mixedCurrent;
 var cocktailMultiplier, bourbonMultiplier, scotchMultiplier, mixedMultiplier;
 var purchasePrice, finalPrice;
-var itemQuantity = 1;
-var s1 = "text";
-var s2 = "price";
-var s3 = "item";
-var currentTab = 0;
 
 function setTime () {
   today = new Date();
@@ -218,6 +213,7 @@ $("#menulist li").click(function() {
   $(this).parent().prev().css("border-bottom", "none");
 });
 
+/*
 $(".orderbutton").on("click", function(){
   s1 = $(this).prev().text();
   s2 = s1.substring(s1.lastIndexOf('$') + 1);
@@ -268,3 +264,4 @@ $(".cancelOrder").on("click", function(){
 //  THIS IS WHERE WE KEEP TRACK OF THE
 //  BAR TAB
 document.getElementById('bartab').innerHTML = "Current Tab :  $" + currentTab;
+*/

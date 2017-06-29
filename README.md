@@ -1,6 +1,6 @@
 # CodeLouisville
 
-README - Andrew Noland Front End Web Development Project
+README - Andrew Noland Full Stack JavaScript Development Project
 
 This is a menu and ordering system for a restaurant/bar
 

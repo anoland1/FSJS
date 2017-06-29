@@ -40,11 +40,11 @@ var meatChange, cheeseChange, nutsChange, spreadChange;
 var meatCurrent, cheeseCurrent, nutsCurrent, spreadCurrent;
 var meatMultiplier, cheeseMultiplier, nutsMultiplier, spreadMultiplier;
 var purchasePrice, finalPrice;
-var itemQuantity = 1;
-var s1 = "text";
-var s2 = "price";
-var s3 = "item";
-var currentTab = 0;
+//var itemQuantity = 1;
+//var s1 = "text";
+//var s2 = "price";
+//var s3 = "item";
+//var currentTab = 0;
 
 function setTime () {
   today = new Date();
@@ -192,7 +192,7 @@ $("#menulist li").click(function() {
   $(this).parent().prev().css("border-bottom", "none");
 });
 
-$(".orderbutton").on("click", function(){
+/*$(".orderbutton").on("click", function(){
   s1 = $(this).prev().text();
   s2 = s1.substring(s1.lastIndexOf('$') + 1);
   s3 = s1.substring(0, s1.indexOf(":"));
@@ -202,29 +202,29 @@ $(".orderbutton").on("click", function(){
   document.getElementById('selectedItem').innerHTML = s3;
   document.getElementById("quantity").innerHTML=itemQuantity;
   document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-  document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-  document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
+  document.getElementById('selectedTax').innerHTML = "Est. Tax: $"+ (0.06*purchasePrice).toFixed(2);
+  document.getElementById('selectedTotal').innerHTML = "Est. Total: $"+ (1.06*purchasePrice).toFixed(2);
 });
 $("#quantitydown").on("click", function(){
     if (itemQuantity>=2) {itemQuantity-=1;};
     document.getElementById("quantity").innerHTML=itemQuantity;
     purchasePrice=parseFloat(s2)*itemQuantity;
     document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-    document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-    document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
+    document.getElementById('selectedTax').innerHTML = "Est. Tax: $"+ (0.06*purchasePrice).toFixed(2);
+    document.getElementById('selectedTotal').innerHTML = "Est. Total: $"+ (1.06*purchasePrice).toFixed(2);
 });
 $("#quantityup").on("click", function(){
     itemQuantity+=1;
     document.getElementById("quantity").innerHTML=itemQuantity;
     purchasePrice=parseFloat(s2)*itemQuantity;
     document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-    document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-    document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
+    document.getElementById('selectedTax').innerHTML = "Est. Tax: $"+ (0.06*purchasePrice).toFixed(2);
+    document.getElementById('selectedTotal').innerHTML = "Est. Total: $"+ (1.06*purchasePrice).toFixed(2);
 });
 $(".confirmOrder").on("click", function(){
-    finalPrice = purchasePrice*1.06;
-    currentTab += finalPrice;
-    alert("You ordered " + itemQuantity + " " + s3 + "for $" + finalPrice.toFixed(2) + ".  Your order will be ready soon!");
+//    finalPrice = purchasePrice*1.06;
+    currentTab += purchasePrice;
+    alert("You ordered " + itemQuantity + " " + s3 + "for $" + purchasePrice.toFixed(2) + ".  Your order will be ready soon!");
     document.getElementById('bartab').innerHTML = "Current Tab :  $" + currentTab.toFixed(2);
     $("#purchaseOrder").addClass("hidden");
     $("#menulist").removeClass("hidden");
@@ -242,3 +242,4 @@ $(".cancelOrder").on("click", function(){
 //  THIS IS WHERE WE KEEP TRACK OF THE
 //  BAR TAB
 document.getElementById('bartab').innerHTML = "Current Tab :  $" + currentTab;
+*/

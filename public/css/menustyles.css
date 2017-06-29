@@ -41,6 +41,27 @@
 	z-index: .9;
 }
 
+.backbutton {
+	background: black;
+	box-shadow: 0 1px 0 0 #000;
+	color: #fff;
+	text-shadow: 0 0px #000;
+	border-radius: 6px;
+	width: 110px;
+}
+
+.paybutton {
+	background: green;
+	box-shadow: 0 1px 0 0 #000;
+	color: #fff;
+	text-shadow: 0 0px #000;
+	border-radius: 6px;
+	width: 110px;
+}
+.paybuttons{
+	margin: 10px auto 10px 100px;
+}
+
 .invisible {
 	visibility: hidden;
 }
