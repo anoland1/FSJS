@@ -59,7 +59,8 @@
 	width: 110px;
 }
 .paybuttons{
-	margin: 10px auto 10px 100px;
+	margin: 10px auto;
+	text-align: center;
 }
 
 .invisible {
@@ -75,6 +76,55 @@
 .itemselected .orderbutton {
 	visibility: visible;
 }
+
+
+.list-group-item {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	background: #f6f6f6;
+}
+
+.pull-right {
+	float:right;
+	margin-top: -1px;
+}
+
+
+.btn-default {
+	background: lightgray;
+	font-weight: bold;
+	font-size: .9em;
+	line-height: 0px;
+	box-shadow: 0 0px 0 0 #000;
+	height: 21px;
+	border-radius: 2px;
+}
+
+.btn-danger {
+	background: red;
+	font-size: .9em;
+	line-height: 4px;
+	color: white;
+	box-shadow: 0 0px 0 0 #000;
+	height: 21px;
+	width: 23px;
+	border-radius: 2px;
+}
+
+.listprice {
+	margin-right: 20px;
+}
+#totalPrice {
+	text-align: center;
+	margin: 5px auto;
+	font-weight: bold;
+	font-size: 1.1em;
+
+}
+
+/*-------------------
+INDIVIDUAL ITEM ORDER
+---------------------*/
 
 #purchaseOrder {
 	width: 250px;
@@ -95,10 +145,8 @@
 
 #purchaseOrder .quantity {
 	margin: 0 5px;
-	box-shadow: 0 1px 0 0 #fff;
 	color: #000;
 	text-shadow: 0 0px #888;
-	border-radius: 50%;
 	display: inline-block;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -106,21 +154,26 @@
 
 #purchaseOrder #quantity	{
 	background: black;
-	width: 30px;
+	width: 40px;
 	height: 30px;
 	color: white;
+	border-radius: 5px;
 }
 #purchaseOrder #quantityup	{
 	background: green;
+	box-shadow: 0 1px 0 0 #fff;
 	width: 30px;
 	height: 30px;
 	color: white;
+	border-radius: 50%;
 }
 
 #purchaseOrder #quantitydown	{
 	background: red;
+	box-shadow: 0 1px 0 0 #fff;
 	width: 30px;
 	height: 30px;
+	border-radius: 50%;
 }
 
 #purchaseOrder #selectedPrice,
@@ -153,15 +206,88 @@
 	margin-bottom: 15px;
 }
 
+/*-------------------
+CLOSE TAB MENU
+---------------------*/
+
+#payNow {
+	width: 250px;
+	height: auto;
+	margin: 40px auto 0 auto;
+	background-color: #faebd7;
+	border: 1px solid #aaa;
+	border-radius: 8px;
+	text-align: center;
+}
+
+#payNow .tipamount {
+	margin: 0 5px;
+	color: #000;
+	text-shadow: 0 0px #888;
+	display: inline-block;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#payNow #tipAmount	{
+	background: black;
+	width: 50px;
+	height: 30px;
+	color: white;
+	border-radius: 5px;
+}
+#payNow #tipAmountUp	{
+	background: green;
+	box-shadow: 0 1px 0 0 #fff;
+	width: 30px;
+	height: 30px;
+	color: white;
+	border-radius: 50%;
+}
+
+#payNow #tipAmountDown	{
+	background: red;
+	box-shadow: 0 1px 0 0 #fff;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+#payNow #subtotal,
+#payNow #tip,
+#payNow #total {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: black;
+}
+
+#payNow .finalPay {
+	background: green;
+	box-shadow: 0 1px 0 0 #fff;
+	color: #fff;
+	text-shadow: 0 0px #888;
+	border-radius: 6px;
+	width: 120px;
+	height: 30px;
+}
+
+#payNow .cancelOrder {
+	background: black;
+	box-shadow: 0 1px 0 0 #fff;
+	color: #fff;
+	text-shadow: 0 0px #888;
+	border-radius: 6px;
+	width: 120px;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+
 .hidden {
 	display: none;
 }
 
-#bartab {
-	font-size: 1.1em;
-	text-transform: uppercase;
-	font-weight: bold;
-}
 
 
 /* =================================

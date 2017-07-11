@@ -26,43 +26,59 @@
 	<ul>
 		<div id="menutitle"><h3>View Tab</h3></div>
 		<div id="list-container"></div>
-		<li class="menuitem">Subtotal: </li>
-		<div><li class="menuitem">Tax: </li></div>
-		<div><li class="menuitem">Total without tip: </li></div>
-	</ul>
+		<br>
+		<li></li>
+		</ul>
+		<span id="totalPrice"><div id="bartab"></div></span>
+		<div class="paybuttons"><a href="firstpage.html"><button class="backbutton">Go Back</button></a>&nbsp&nbsp&nbsp<button class="paybutton">Close Tab</button></div>
+
 	</div>
+
 
 
 	<script id="list-template" type="text/x-handlebars-template">
 	<ul class="list-group">
 		{{#each files}}
 		<li class="list-group-item">
-			<strong>{{title}}</strong> - {{price}}
-			<span class="pull-right">
+			<strong>{{title}}</strong>
+			<span class="pull-right"> <span class="listprice">${{price}}</span>
 				<button type="button" class="btn btn-xs btn-default" onclick="editFileClick('{{_id}}')">Edit</button>
-				<button type="button" class="btn btn-xs btn-danger" onclick="deleteFileClick('{{_id}}')">Del</button>
+				<button type="button" class="btn btn-xs btn-danger" onclick="deleteFileClick('{{_id}}')">x</button>
 			</span>
 		</li>
 		{{/each}}
+		<span id="form-container" class="panel hidden">
+			<form id="add-file-form">
+				<input type="hidden" id="file-id" value="" />
+				<span class="form-group">
+					<label for="file-title"></label>
+					<input type="text" size="30" class="form-control" id="file-title" placeholder="Title">
+				</span>
+				<span class="form-group">
+					<label for="file-price">Price</label>
+					<input type="text" size="10" class="form-control" id="file-price" placeholder="Price">
+				</span>
+				<button type="button" onclick="submitEditFileForm()" class="btn btn-success">Submit</button>
+				<button type="button" onclick="cancelFileForm()" class="btn btn-link">Cancel</button>
+			</form>
+		</span>
 	</ul>
 </script>
 
-<div class="paybuttons"><button class="backbutton">Go Back</button><a>   </a><button class="paybutton">Close Tab</button></div>
 
 
-<div id="purchaseOrder" class="hidden">
-	<p id="selectedItem"></p>
-	<button type="button" class="quantity" id="quantitydown">-</button><button type="disabled" class="quantity" id="quantity">1</button><button type="button" class="quantity" id="quantityup">+</button>
-	<p id="selectedPrice"></p>
-	<p id="selectedTax"></p>
-	<p id="selectedTotal"></p>
-	<button type="button" class="orderbutton">Confirm Payment</button>
+<div id="payNow" class="hidden">
+	<p>PAY FOR YOUR ORDER</p>
+	<p id="subtotal"></p>
+	<button type="button" class="tipAmount" id="tipAmountDown">-</button>&nbsp&nbsp<button type="disabled" class="tipAmount" id="tipAmount">10%</button>&nbsp&nbsp<button type="button" class="tipAmount" id="tipAmountUp">+</button>
+	<p id="tip"></p>
+	<p id="total"></p>
+	<a href="index.html"><button type="button" class="finalPay">Pay Now</button></a><br>
 	<button type="button" class="cancelOrder">Cancel</button>
 </div>
 
 
 <footer class="main-footer">
-	<span id="bartab"></span>
 	<br><br>
 	<span>(c) 2017 LA SOURCE BAR AND BISTRO</span>
 </footer>
@@ -72,11 +88,6 @@
 	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		$(document).ready(function() {
-	//		const data = { name: "Code Louisvillains" }
-	//		const greetingTemplate = 'Hello {{name}}! I am a template!';
-	//		const greetingCompiled = Handlebars.compile(greetingTemplate);
-	//		const greetingRendered = greetingCompiled(data);
-	//		$('body h1').first().after(greetingRendered);
 			refreshFileList();
 		});
 	</script>

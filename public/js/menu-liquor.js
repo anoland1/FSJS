@@ -42,6 +42,7 @@ var cocktailChange, bourbonChange, scotchChange, mixedChange;
 var cocktailCurrent, bourbonCurrent, scotchCurrent, mixedCurrent;
 var cocktailMultiplier, bourbonMultiplier, scotchMultiplier, mixedMultiplier;
 var purchasePrice, finalPrice;
+var clickenabled=false;
 
 function setTime () {
   today = new Date();
@@ -206,62 +207,13 @@ function autoUpdate() {
 
 setInterval (autoUpdate, 1000);
 
+setTimeout(function(){clickenabled=true;}, 1000);
+
 $("#menulist li").click(function() {
+  if (clickenabled) {
   $("#menulist ul").children().removeClass("itemselected");
   $("#menulist ul").children().css("border-bottom", "1px solid grey");
   $(this).parent().removeClass("invisible").addClass("itemselected");
   $(this).parent().prev().css("border-bottom", "none");
+}
 });
-
-/*
-$(".orderbutton").on("click", function(){
-  s1 = $(this).prev().text();
-  s2 = s1.substring(s1.lastIndexOf('$') + 1);
-  s3 = s1.substring(0, s1.indexOf(":"));
-  purchasePrice = parseFloat(s2);
-  $("#menulist").addClass("hidden");
-  $("#purchaseOrder").removeClass("hidden");
-  document.getElementById('selectedItem').innerHTML = s3;
-  document.getElementById("quantity").innerHTML=itemQuantity;
-  document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-  document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-  document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
-});
-$("#quantitydown").on("click", function(){
-    if (itemQuantity>=2) {itemQuantity-=1;};
-    document.getElementById("quantity").innerHTML=itemQuantity;
-    purchasePrice=parseFloat(s2)*itemQuantity;
-    document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-    document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-    document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
-});
-$("#quantityup").on("click", function(){
-    itemQuantity+=1;
-    document.getElementById("quantity").innerHTML=itemQuantity;
-    purchasePrice=parseFloat(s2)*itemQuantity;
-    document.getElementById('selectedPrice').innerHTML = "Price: $" + purchasePrice.toFixed(2);
-    document.getElementById('selectedTax').innerHTML = "Tax: $"+ (0.06*purchasePrice).toFixed(2);
-    document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
-});
-$(".confirmOrder").on("click", function(){
-    finalPrice = purchasePrice*1.06;
-    currentTab += finalPrice;
-    alert("You ordered " + itemQuantity + " " + s3 + "for $" + finalPrice.toFixed(2) + ".  Your order will be ready soon!");
-    document.getElementById('bartab').innerHTML = "Current Tab :  $" + currentTab.toFixed(2);
-    $("#purchaseOrder").addClass("hidden");
-    $("#menulist").removeClass("hidden");
-    itemQuantity=1;
-    $("#menulist li").parents().removeClass("itemselected");
-    $("#menulist ul").children().css("border-bottom", "1px solid grey");
-});
-$(".cancelOrder").on("click", function(){
-    $("#purchaseOrder").addClass("hidden");
-    $("#menulist").removeClass("hidden");
-    itemQuantity=1;
-});
-
-
-//  THIS IS WHERE WE KEEP TRACK OF THE
-//  BAR TAB
-document.getElementById('bartab').innerHTML = "Current Tab :  $" + currentTab;
-*/

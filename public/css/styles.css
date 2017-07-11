@@ -108,6 +108,13 @@ body {
 	}
 
 
+	#bartab {
+		font-size: 1.1em;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+
 /* ---- Layout Containers ---- */
 
 .main-header {

@@ -37,6 +37,7 @@ var beer1Change, beer2Change, beer3Change, beer4Change, beer5Change, beer6Change
 var beer1Current, beer2Current, beer3Current, beer4Current, beer5Current, beer6Current, beer7Current;
 var beer1Multiplier, beer2Multiplier, beer3Multiplier, beer4Multiplier, beer5Multiplier, beer6Multiplier, beer7Multiplier;
 var purchasePrice, finalPrice;
+var clickenabled=false;
 
 function setTime () {
   today = new Date();
@@ -122,9 +123,13 @@ function autoUpdate() {
 
 setInterval (autoUpdate, 1000);
 
+setTimeout(function(){clickenabled=true;}, 1000);
+
 $("#menulist li").click(function() {
-  $(this).parent().siblings().css("border-bottom", "1px solid grey");
-  $(this).parent().siblings().removeClass("itemselected");
+  if (clickenabled) {
+  $("#menulist ul").children().removeClass("itemselected");
+  $("#menulist ul").children().css("border-bottom", "1px solid grey");
   $(this).parent().removeClass("invisible").addClass("itemselected");
   $(this).parent().prev().css("border-bottom", "none");
+}
 });

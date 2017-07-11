@@ -40,6 +40,8 @@ let s3 = "item";
 let currentTab = 0;
 getFiles();
 let itemQuantity = 1;
+let subtotal=0;
+let tipAmount=10;
 
 
 $(".orderbutton").on("click", function(){
@@ -72,7 +74,7 @@ $("#quantityup").on("click", ()=>{
     document.getElementById('selectedTotal').innerHTML = "Total: $"+ (1.06*purchasePrice).toFixed(2);
 });
 $(".confirmOrder").on("click", function(){
-    finalPrice = purchasePrice*1.06.toFixed(2);
+    finalPrice = (purchasePrice*1.06).toFixed(2);
     alert("You ordered " + itemQuantity + " " + s3 + "for $" + finalPrice + ".  Your order will be ready soon!");
     $("#purchaseOrder").addClass("hidden");
     $("#menulist").removeClass("hidden");
@@ -87,6 +89,38 @@ $(".cancelOrder").on("click", () =>{
     itemQuantity=1;
 });
 
+$(".paybutton").on("click", function(){
+  $("#menulist").addClass("hidden");
+  $("#payNow").removeClass("hidden");
+  document.getElementById('subtotal').innerHTML = "Subtotal: $" + subtotal.toFixed(2);
+  document.getElementById('tip').innerHTML="Tip: $" + (subtotal*(tipAmount/100)).toFixed(2);
+  document.getElementById('total').innerHTML = "Total: $" + (subtotal*(1+(tipAmount/100))).toFixed(2);
+});
+$("#tipAmountDown").on("click", ()=>{
+    if (tipAmount>=1) {tipAmount-=1;};
+    document.getElementById('tipAmount').innerHTML = tipAmount + "%";
+    document.getElementById('subtotal').innerHTML = "Subtotal: $" + subtotal.toFixed(2);
+    document.getElementById('tip').innerHTML="Tip: $" + (subtotal*(tipAmount/100)).toFixed(2);
+    document.getElementById('total').innerHTML = "Total: $" + (subtotal*(1+(tipAmount/100))).toFixed(2);
+});
+$("#tipAmountUp").on("click", ()=>{
+    tipAmount+=1;
+    document.getElementById('tipAmount').innerHTML = tipAmount + "%";
+    document.getElementById('subtotal').innerHTML = "Subtotal: $" + subtotal.toFixed(2);
+    document.getElementById('tip').innerHTML="Tip: $" + (subtotal*(tipAmount/100)).toFixed(2);
+    document.getElementById('total').innerHTML = "Total: $" + (subtotal*(1+(tipAmount/100))).toFixed(2);
+});
+$(".finalPay").on("click", function(){
+    alert("Thank you for your business!");
+    deleteAllFiles();
+    getFiles();
+});
+$(".cancelOrder").on("click", () =>{
+    $("#payNow").addClass("hidden");
+    $("#menulist").removeClass("hidden");
+    itemQuantity=1;
+});
+
 
 function submitFileForm() {
   console.log("You clicked 'submit'. Congratulations.");
@@ -94,7 +128,7 @@ function submitFileForm() {
 //    title: $('#file-title').val(),
 //    price: $('#file-price').val(),
     title: itemQuantity + " " + s3,
-    price: purchasePrice.toFixed(2),
+    price: finalPrice,
     _id: $('#file-id').val(),
   };
   console.log(fileData.price);
@@ -126,6 +160,38 @@ function submitFileForm() {
   console.log("Your file data", fileData);
 }
 
+function submitEditFileForm() {
+  const fileData = {
+    title: $('#file-title').val(),
+    price: $('#file-price').val(),
+    _id: $('#file-id').val(),
+  };
+  let method, url;
+  if (fileData._id) {
+    method = 'PUT';
+    url = '/api/file/' + fileData._id;
+  } else {
+    method = 'POST';
+    url = '/api/file';
+  }
+  $.ajax({
+    type: method,
+    url: url,
+    data: JSON.stringify(fileData),
+    dataType: 'json',
+    contentType : 'application/json',
+  })
+    .done(function(response) {
+      console.log("We have posted the data");
+      refreshFileList();
+      toggleAddFileForm();
+    })
+    .fail(function(error) {
+      console.log("Failures at posting, we are", error);
+    })
+  console.log("Your file data", fileData);
+}
+
 
 function getFiles() {
   return $.ajax('/api/file')
@@ -137,10 +203,29 @@ function getFiles() {
         currentTab+= currentVar;
       }
       document.getElementById('bartab').innerHTML = "Current Tab : $" + currentTab.toFixed(2);
+      subtotal=currentTab;
       return res;
     })
     .fail(err => {
       console.log("Error in getFiles()", err);
+      throw err;
+    });
+}
+
+function deleteAllFiles() {
+  return $.ajax('/api/file')
+    .then(res => {
+      for (i=0; i<res.length; i++) {
+        $.ajax({
+          type: 'DELETE',
+          url: '/api/file/' + res[i]._id,
+          dataType: 'json',
+          contentType : 'application/json',
+        })
+      }
+    })
+    .fail(err => {
+      console.log("Error in deleteAllFiles()", err);
       throw err;
     });
 }
@@ -154,7 +239,7 @@ function editFileClick(id) {
 }
 
 function deleteFileClick(id) {
-  if (confirm("Are you sure?")) {
+  if (confirm("Are you sure you want to delete this item?")) {
     $.ajax({
       type: 'DELETE',
       url: '/api/file/' + id,
@@ -169,6 +254,10 @@ function deleteFileClick(id) {
         console.log("I'm not dead yet!", error);
       })
   }
+}
+
+function cancelFileForm() {
+  toggleAddFileFormVisibility();
 }
 
 function setFormData(data) {
@@ -193,16 +282,8 @@ function refreshFileList() {
       const data = {files: files};
       const html = compiledTemplate(data);
       $('#list-container').html(html);
-      //const testerw=JSON.parse(data);
-      //console.log(testerw.price);
       });
 }
-
-//map function
-//Object.keys(data).forEach(function(key) {
-//  data[key]
-//  currentTab += data.price;
-//});
 
 
 function toggleAddFileForm() {

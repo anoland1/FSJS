@@ -15,26 +15,26 @@ var whiteTime = [0.8, 0.85, 0.9, 1.0, 1.1, 1.0, 0.6, 0.5, 0.6, 1.0, 1.2, 1.3,
     1.5, 1.45, 1.3, 1.2, 1.1, 1.2, 1.5, 1.7, 1.6, 1.5, 1.3, 1.0];
 var champagneTime = [0.8, 0.85, 0.9, 1.0, 1.1, 1.0, 0.6, 0.5, 0.6, 1.0, 1.2, 1.3,
     1.5, 1.45, 1.3, 1.2, 1.1, 1.2, 1.5, 1.7, 1.6, 1.5, 1.3, 1.0];
-var red1BasePrice = 33.55; // 2015 Sonoma County Merlot
-var red2BasePrice = 47.95; // 2012 California Cabernet
-var red3BasePrice = 99.10; // 2013 French Burgundy
-var red4BasePrice = 39.51; // 2014 Spanish Syrah
-var red5BasePrice = 33.55; // 2015 Orange County Pinot Noir
-var red6BasePrice = 47.95; // 2013 French Cabernet
-var red7BasePrice = 69.10; // 2011 French Pinot Noir
-var red8BasePrice = 59.51; // 2010 Napa Merlot
-var white1BasePrice = 35.52; // 2015 Sonoma County Chardonnay
-var white2BasePrice = 46.94; // 2012 California Pinot Gris
-var white3BasePrice = 85.13; // 2013 French Sauvignon Blanc
-var white4BasePrice = 35.52; // 2014 Spanish Riesling
-var white5BasePrice = 35.53; // 2015 Orange County Riesling
-var white6BasePrice = 43.94; // 2013 French Chardonnay
-var white7BasePrice = 61.12; // 2011 French Pinot Gris
-var white8BasePrice = 55.53; // 2010 Napa Sauvignon Blanc
-var champagne1BasePrice = 25.53; // 2015 Andre
-var champagne2BasePrice = 37.93; // 2013 Churchill
-var champagne3BasePrice = 79.12; // 2011 Moet
-var champagne4BasePrice = 99.53; // 2010 Moet
+var red1BasePrice = 13.55; // 2015 Sonoma County Merlot
+var red2BasePrice = 27.95; // 2012 California Cabernet
+var red3BasePrice = 49.10; // 2013 French Burgundy
+var red4BasePrice = 29.51; // 2014 Spanish Syrah
+var red5BasePrice = 13.55; // 2015 Orange County Pinot Noir
+var red6BasePrice = 27.95; // 2013 French Cabernet
+var red7BasePrice = 39.10; // 2011 French Pinot Noir
+var red8BasePrice = 39.51; // 2010 Napa Merlot
+var white1BasePrice = 15.52; // 2015 Sonoma County Chardonnay
+var white2BasePrice = 26.94; // 2012 California Pinot Gris
+var white3BasePrice = 55.13; // 2013 French Sauvignon Blanc
+var white4BasePrice = 25.52; // 2014 Spanish Riesling
+var white5BasePrice = 15.53; // 2015 Orange County Riesling
+var white6BasePrice = 23.94; // 2013 French Chardonnay
+var white7BasePrice = 31.12; // 2011 French Pinot Gris
+var white8BasePrice = 15.53; // 2010 Napa Sauvignon Blanc
+var champagne1BasePrice = 15.53; // 2015 Andre
+var champagne2BasePrice = 27.93; // 2013 Churchill
+var champagne3BasePrice = 49.12; // 2011 Moet
+var champagne4BasePrice = 59.53; // 2010 Moet
 var today, h, m, s;
 var secondsInHour, nextHour;
 var red1Price, red2Price, red3Price, red4Price, red5Price, red6Price, red7Price, red8Price, white1Price, white2Price, white3Price, white4Price, white5Price, white6Price, white7Price, white8Price, champagne1Price, champagne2Price, champagne3Price, champagne4Price;
@@ -42,6 +42,7 @@ var redChange, whiteChange, champagneChange;
 var redCurrent, whiteCurrent, champagneCurrent;
 var redMultiplier, whiteMultiplier, champagneMultiplier;
 var purchasePrice, finalPrice;
+var clickenabled = false;
 
 function setTime () {
   today = new Date();
@@ -209,9 +210,13 @@ function autoUpdate() {
 
 setInterval (autoUpdate, 1000);
 
+setTimeout(function(){clickenabled=true;}, 1000);
+
 $("#menulist li").click(function() {
+  if (clickenabled) {
   $("#menulist ul").children().removeClass("itemselected");
   $("#menulist ul").children().css("border-bottom", "1px solid grey");
   $(this).parent().removeClass("invisible").addClass("itemselected");
   $(this).parent().prev().css("border-bottom", "none");
+}
 });
