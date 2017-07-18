@@ -149,7 +149,7 @@ body {
   Media Queries
 ==================================== */
 
-@media (max-width: 599px) {
+@media (max-width: 749px) {
 
 	body {
 		padding-top: 68px;
@@ -185,7 +185,7 @@ body {
 	}
 }
 
-@media (min-width: 600px) {
+@media (min-width: 750px) {
 
   body {
     padding-top: 68px;

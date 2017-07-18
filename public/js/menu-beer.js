@@ -37,7 +37,6 @@ var beer1Change, beer2Change, beer3Change, beer4Change, beer5Change, beer6Change
 var beer1Current, beer2Current, beer3Current, beer4Current, beer5Current, beer6Current, beer7Current;
 var beer1Multiplier, beer2Multiplier, beer3Multiplier, beer4Multiplier, beer5Multiplier, beer6Multiplier, beer7Multiplier;
 var purchasePrice, finalPrice;
-var clickenabled=false;
 
 function setTime () {
   today = new Date();
@@ -124,7 +123,6 @@ function autoUpdate() {
 autoUpdate();
 setInterval (autoUpdate, 1000);
 
-//delete references to clickenabled
 
 $("#menulist li").click(function() {
   $("#menulist ul").children().removeClass("itemselected");

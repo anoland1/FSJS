@@ -42,7 +42,6 @@ var redChange, whiteChange, champagneChange;
 var redCurrent, whiteCurrent, champagneCurrent;
 var redMultiplier, whiteMultiplier, champagneMultiplier;
 var purchasePrice, finalPrice;
-var clickenabled = false;
 
 function setTime () {
   today = new Date();
@@ -208,16 +207,13 @@ function autoUpdate() {
   champagne4Function();
 };
 
+autoUpdate();
 setInterval (autoUpdate, 1000);
 
-setTimeout(function(){clickenabled=true;}, 1000);
-
 $("#menulist li").click(function() {
-  if (clickenabled) {
   $("#menulist ul").children().removeClass("itemselected");
   $("#menulist ul").children().css("border-bottom", "1px solid grey");
   $(this).parent().removeClass("invisible").addClass("itemselected");
   $(this).parent().prev().css("border-bottom", "none");
-}
 });
 })()
