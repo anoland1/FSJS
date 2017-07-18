@@ -41,7 +41,7 @@ let currentTab = 0;
 getFiles();
 let itemQuantity = 1;
 let subtotal=0;
-let tipAmount=10;
+let tipAmount=15;
 
 
 $(".orderbutton").on("click", function(){
@@ -92,6 +92,7 @@ $(".cancelOrder").on("click", () =>{
 $(".paybutton").on("click", function(){
   $("#menulist").addClass("hidden");
   $("#payNow").removeClass("hidden");
+  document.getElementById('tipAmount').innerHTML = tipAmount + "%";
   document.getElementById('subtotal').innerHTML = "Subtotal: $" + subtotal.toFixed(2);
   document.getElementById('tip').innerHTML="Tip: $" + (subtotal*(tipAmount/100)).toFixed(2);
   document.getElementById('total').innerHTML = "Total: $" + (subtotal*(1+(tipAmount/100))).toFixed(2);
@@ -121,6 +122,19 @@ $(".cancelOrder").on("click", () =>{
     itemQuantity=1;
 });
 
+
+function refreshFileList() {
+  const template = $('#list-template').html();
+  const compiledTemplate = Handlebars.compile(template);
+
+  getFiles()
+    .then(files => {
+      window.fileList = files;
+      const data = {files: files};
+      const html = compiledTemplate(data);
+      $('#list-container').html(html);
+      });
+}
 
 function submitFileForm() {
   console.log("You clicked 'submit'. Congratulations.");
@@ -272,18 +286,7 @@ function setFormData(data) {
   $('#file-id').val(file._id);//???????
 }
 
-function refreshFileList() {
-  const template = $('#list-template').html();
-  const compiledTemplate = Handlebars.compile(template);
 
-  getFiles()
-    .then(files => {
-      window.fileList = files;
-      const data = {files: files};
-      const html = compiledTemplate(data);
-      $('#list-container').html(html);
-      });
-}
 
 
 function toggleAddFileForm() {

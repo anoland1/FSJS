@@ -1,5 +1,5 @@
 
-
+(function(){
 //LIQUOR PAGE
 
 var d = new Date();
@@ -217,3 +217,4 @@ $("#menulist li").click(function() {
   $(this).parent().prev().css("border-bottom", "none");
 }
 });
+})()

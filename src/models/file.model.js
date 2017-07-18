@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 
 const FileSchema = new mongoose.Schema({
   title: String,
-  price: String, //?????????????
+  price: String,
+  table: String,
+//  _id: String,
   created_at: { type: Date, default: Date.now },
-  deleted: {type: Boolean, default: false}
+  deleted: {type: Boolean, default: false},
+  served: {type: Boolean, default: false}
 });
 
 const File = mongoose.model('File', FileSchema);

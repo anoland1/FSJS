@@ -2,12 +2,12 @@
 const router = require('express').Router();
 const mongoose = require('mongoose');
 
-const FILES = [
-  {id: 'a', title: 'cutecat1.jpg', price: '3.14'},
-  {id: 'b', title: 'uglycat1.jpg', price: '1.59'},
-  {id: 'c', title: 'total_recall_poster.jpg', price: '2.65'},
-  {id: 'd', title: 'louisville_coffee.txt', price: '4.54'},
-];
+//const FILES = [
+//  {id: 'a', title: 'cutecat1.jpg', price: '3.14'},
+//  {id: 'b', title: 'uglycat1.jpg', price: '1.59'},
+//  {id: 'c', title: 'total_recall_poster.jpg', price: '2.65'},
+//  {id: 'd', title: 'louisville_coffee.txt', price: '4.54'},
+//];
 
 router.put('/file/:fileId', function(req, res, next) {
 const File = mongoose.model('File');

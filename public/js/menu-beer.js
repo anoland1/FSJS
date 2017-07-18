@@ -1,5 +1,5 @@
 
-
+(function(){
 //BEER PAGE
 
 var d = new Date();
@@ -121,15 +121,15 @@ function autoUpdate() {
   beer7Function();
 };
 
+autoUpdate();
 setInterval (autoUpdate, 1000);
 
-setTimeout(function(){clickenabled=true;}, 1000);
+//delete references to clickenabled
 
 $("#menulist li").click(function() {
-  if (clickenabled) {
   $("#menulist ul").children().removeClass("itemselected");
   $("#menulist ul").children().css("border-bottom", "1px solid grey");
   $(this).parent().removeClass("invisible").addClass("itemselected");
   $(this).parent().prev().css("border-bottom", "none");
-}
 });
+})()
